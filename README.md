@@ -4,7 +4,7 @@ A text based adventure game built with Clojurescript and Node-Webkit
 
 ##Author
 
-Frank Hale <frankhale@gmail.com>
+Frank Hale &lt;frankhale@gmail.com&gt;
 
 ##License
 
