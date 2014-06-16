@@ -1,6 +1,6 @@
 #Ghosts of Yarrow
 
-A text based adventure game built with Clojurescript and Node-Webkit
+An exploration in creating a text adventure.
 
 ##Author
 
