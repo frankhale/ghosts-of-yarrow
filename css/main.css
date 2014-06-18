@@ -1,26 +1,16 @@
 .commandInput {
-	position: absolute;
-	width: 725px;
-	bottom: 10px;
-}
-
-.goButton {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	width: 680px;
 }
 
 .content {
 	margin-top: 5px;
-	border: 1px solid gray;
-	width: 770px;
-	height: 375px;
+	border: 1px solid #ccc;
+	height: 395px;
+	font-size: 32px;
 }
 
 .player {
-	margin-top: 5px;
-	position: absolute;
-	border: 1px solid gray;
-	width: 770px;
-	height: 100px;
+	margin-top: 10px;
+	border: 1px solid #ccc;
+	height: 110px;
 }
