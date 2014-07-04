@@ -16,40 +16,6 @@ locations.*
 *Actually come to think of it I think I'll hand draw a map and just scan it in
 as a graphic.*
 
-Requirements:
-
-NOTE: Okay so I am seriously influenced by games in the series of The Elder Scrolls
-so I'd like to incorporate some of the core game play aspects into this. 
-
-- Free roaming
-	- Internally the map will be 2D top down and act like an old school RPG but the player won't see a map, instead only see text to let him know what is going on in the game.
-- Player leveling
-	- Skills:
-		- Meditation
-		- Pick Pocket / Theft
-		- Bribery
-		- Magic
-- Magic?
-- Lots of items to find, receive as a reward or buy
-- Battle system
-	- Will work similiar to how battles worked in Lord of Ultima. Behind the scenes various math formulas (dice rolling) in conjunction with various skills and strengths will go into determining how one performs in a battle / fighting scene. 
-
-NOTES:
-
-- Yarrow is a large island
-	- It will have all of the various terrain types
-		- Mountains
-		- Rivers
-		- Lakes
-		- Hills
-		- Forests
-- City names:
-	- Irdana: The closest town to the characters starting position
-	- Maria
-	- Sonara
-	- Tempor
-- Setting: There will be modern aspects such as clothing and lifestyle that feels as though it could exist in the 21st century but the game will play like a fantasy role playing game in the style of old school RPGs but without graphics. 
-
 ###NOTE: This isn't necessarily meant to read from top to bottom.
 
 You find yourself in the middle of a field, it's nighttime and you don't 
@@ -95,12 +61,20 @@ You'll need to find a place where you can sleep at night.
 You'll need to conquer the skill of meditation. This will be vital in allowing
 you to open yourself up to receive information about your quest.
 
-The lights you suspected were a city were indeed a city and it's a good thing 
+The lights you suspected were a city, were indeed a city and it's a good thing 
 because you are tired and need to rest. You'll need to look for a safe place
 to sleep. Head for the monastery, I'm sure they will have warm place for you
 to rest.
 
-You've found the town of Irdana
+You've found the town of Irdana. 
+
+Irdana is a small coastal town positioned near the Wispful bay.
 
 Explore the town and talk to as many people as you can. Find out as much 
 information as you need to get you started on your quest.
+
+## The Woodline South Of The Players Starting Point
+
+You turn south and start walking through the tall grass. You walk about 25 yards
+and notice that your feet are starting to get wet. The ground is very wet in this 
+location. Do you want to continue on or turn around and play it safe?
