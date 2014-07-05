@@ -1,5 +1,8 @@
 #The Ghosts of Yarrow
 
+###NOTE: Picture the land and scenery as if it were rendered in the style
+of The Elder Scrolls Oblivion. The scenery is absolutely beautiful and luscious.
+
 This is a placeholder for developing the storyline to my text adventure game 
 under the same title as this file. Additionally this will outline the 
 requirements and various aspects of the game.
@@ -16,6 +19,7 @@ locations.*
 *Actually come to think of it I think I'll hand draw a map and just scan it in
 as a graphic.*
 
+###NOTE: This isn't necessarily meant to read from top to bottom.
 ###NOTE: This isn't necessarily meant to read from top to bottom.
 
 You find yourself in the middle of a field, it's nighttime and you don't 
@@ -73,8 +77,27 @@ Irdana is a small coastal town positioned near the Wispful bay.
 Explore the town and talk to as many people as you can. Find out as much 
 information as you need to get you started on your quest.
 
-## The Woodline South Of The Players Starting Point
+##The Woodline South Of The Players Starting Point
 
 You turn south and start walking through the tall grass. You walk about 25 yards
 and notice that your feet are starting to get wet. The ground is very wet in this 
-location. Do you want to continue on or turn around and play it safe?
+location. It's perhaps 1 and a half feet deep. Do you want to continue on or turn 
+around and play it safe or continue on?
+
+###NOTE
+
+*The woodline to the south has a swampy area which is in front of it. If the 
+player continues and makes the trek through the swampy area then he will eventually
+come out of it and reach the forest. About 30 feet within the woodline is a hollowed
+out tree which leads to a chamber that contains valuable items that the player will
+surely want for his journey.*
+
+If the player continues south passed the hollowed out tree he will come to a beach
+because the players starting position is on a small peninsula.
+
+##To the East and West of the Starting Position
+
+The player can travel to his east or west from the starting position. If he does he
+will encounter a grassy area similiar to his starting position followed by the woodline.
+If he travels through the woodline he'll come to a beach because the area that the player
+starts is on a small peninsula.
