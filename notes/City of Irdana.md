@@ -17,6 +17,14 @@ are pubs, places to rest, places to worship, places for magic, places to learn, 
 - Small port for supply ships and fishing vessels
 - The town has a lot of character to it, there are lots of colorful flowers/plants around
 
+##Botanical
+
+The botanical contains a building suitable for housing the botanist and her apprentice as
+well as working with plants in order to plant them in the garden. There are a number of plants
+within the building in various stages of development. The botanist and her apprentice take their
+work very seriously. They have a special room which houses magical plants used for creating
+potions and spells.
+
 ##Monestary
 
 The Monestary is modest in size and reflects the nature of the town of Irdana. 

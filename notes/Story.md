@@ -1,7 +1,6 @@
 #The Ghosts of Yarrow
 
-###NOTE: Picture the land and scenery as if it were rendered in the style
-of The Elder Scrolls Oblivion. The scenery is absolutely beautiful and luscious.
+###NOTE: Picture the land and scenery as if it were rendered in the style of The Elder Scrolls Oblivion. The scenery is absolutely beautiful and luscious.
 
 This is a placeholder for developing the storyline to my text adventure game 
 under the same title as this file. Additionally this will outline the 
@@ -11,10 +10,10 @@ As I think about this more and more I assume that this file will be bits of
 fragments and ideas because the story won't necessarily read like a book. There 
 will be twists and turns and side quests and such.
 
-*Need to figure out a way to create a map that can be easily changed and 
+Need to figure out a way to create a map that can be easily changed and 
 prototyped here. I guess I'll just have to use text but maybe there is something
 else I can use? Having a map of Yarrow will help in figuring out the story
-locations.*
+locations.
 
 ~~Actually come to think of it I think I'll hand draw a map and just scan it in
 as a graphic.~~
