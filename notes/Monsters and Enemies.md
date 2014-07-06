@@ -9,7 +9,9 @@ Bats
 Snakes
 Wild boar
 Rabbid Vultures
+Rabbid Squirrels
 Swarms of Insects
+Giant ants
 
 ##Enemies
 
@@ -17,4 +19,6 @@ Bandits
 Necromancers
 Magicians
 Theives
-Mercenary
+Mercenarys
+Rogues
+Wolfmen
