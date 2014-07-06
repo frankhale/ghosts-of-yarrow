@@ -1,6 +1,22 @@
 #Items
 
 Arrows
+Candle holder
+Flare
+Torch
+
+##Food
+
+Oranges
+Apples
+Banannas
+Vinison
+Chicken
+Fish
+Bread
+Cheese
+Wine
+Ale
 
 ##Money
 

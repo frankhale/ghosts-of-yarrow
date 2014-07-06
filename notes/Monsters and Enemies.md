@@ -12,6 +12,8 @@ Rabbid Vultures
 Rabbid Squirrels
 Swarms of Insects
 Giant ants
+Pirhana
+Alligator
 
 ##Enemies
 

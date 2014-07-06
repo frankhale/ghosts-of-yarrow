@@ -16,10 +16,9 @@ prototyped here. I guess I'll just have to use text but maybe there is something
 else I can use? Having a map of Yarrow will help in figuring out the story
 locations.*
 
-*Actually come to think of it I think I'll hand draw a map and just scan it in
-as a graphic.*
+~~Actually come to think of it I think I'll hand draw a map and just scan it in
+as a graphic.~~
 
-###NOTE: This isn't necessarily meant to read from top to bottom.
 ###NOTE: This isn't necessarily meant to read from top to bottom.
 
 You find yourself in the middle of a field, it's nighttime and you don't 

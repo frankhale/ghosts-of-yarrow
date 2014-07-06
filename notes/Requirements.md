@@ -3,6 +3,9 @@ Requirements:
 NOTE: Okay so I am seriously influenced by games in the series of The Elder Scrolls, Ultima 4 and 5
 and I'll likely incorporate some of those aspects here.
 
+- Map builder: I'm going to need a map builder of some sort that will allow for creating the 2D arrays as
+easily as possible and one that I can use for posting what the map looks like.
+
 - Free roaming
 	- Internally the map will be 2D top down and act like an old school RPG but the player won't see a map, instead only see text to let him know what is going on in the game.
 - Player leveling
