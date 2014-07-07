@@ -22,8 +22,8 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		width: 800, 
-		height: 600,
+		width: 1024, 
+		height: 768,
 		resizable: false,
 		icon: path.resolve(__dirname, 'ghostsofyarrow.png')
 	});
