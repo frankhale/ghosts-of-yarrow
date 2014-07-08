@@ -29,9 +29,11 @@ var Yarrow = (function (my) {
 		return textElement;
 	}
 	
-	var updatePlayerInfo = function(player) {		
-		var playerHtml = sprintf("Health: %d | Gold: %d | Inventory: %s", player.health, player.gold, player.inventory.toString());
-		
+	var updatePlayerInfo = function(player) {
+		var items = _.pluck(player.inventory, 'name');
+	
+		var playerHtml = sprintf("Health: %d | Gold: %d | Inventory: %s", player.health, player.gold, items.toString());
+				
 		$("#player").html(playerHtml);	
 	};
 
@@ -39,8 +41,11 @@ var Yarrow = (function (my) {
 		$("#content").html(text);
 	};
 	
-	var appendContentPanel = function(text) {
-		$("#info").append(sprintf("<span>%s</span></br>", text));		
+	var appendInfoPanel = function(text) {
+		var $info = $("#info");
+		
+		$info.append(sprintf("%s</br>", text));
+		$info.scrollTop($info.prop("scrollHeight"));
 	};
 	
 	var movePlayer = function(map, player, arg) {
@@ -88,18 +93,24 @@ var Yarrow = (function (my) {
 			}
 		});
 		
+		my.init(player);
+		
 		var textElement = currentTextElement();
 		updateContentPanel(textElement.text());
 		
 		window.setInterval(function() {
 			updatePlayerInfo(player);
 			
+			// This is silliness! 
+			textElement = currentTextElement();
+			updateContentPanel(textElement.text());
+			
 			if(!($command.attr('disabled') && $go.attr('disabled'))) {
 				if(player.health === 0) {
 					console.log("disabling controls");
 					$command.attr('disabled', true);
 					$go.attr('disabled', true);
-					appendContentPanel("<stron>PRESS CTRL+R TO RESTART GAME</strong>");
+					appendInfoPanel("<strong>PRESS CTRL+R TO RESTART GAME</strong>");
 				}
 			}
 		}, 500);
@@ -107,6 +118,7 @@ var Yarrow = (function (my) {
 	
 	// -- Exported functions
 	
+	// processCommand has to be rethought out, this is crazy and doesn't work the way I actually need it to.	
 	my.processCommand = function() {
 		var command = $("#command");
 		var commandText = $("#command").val();
@@ -137,7 +149,7 @@ var Yarrow = (function (my) {
 		else if(action === 'use') {
 			if(textElement.funcs!==undefined && textElement.funcs.use !== undefined){
 				var hasItem = _.find(player.inventory, function(i) {
-					if(i === argument) {
+					if(i.name === argument) {
 						return i;
 					}
 				});
@@ -145,10 +157,10 @@ var Yarrow = (function (my) {
 				if(hasItem !== undefined) {
 					textElement.funcs.use(textElement, player, map, argument, function(t) {
 						//console.log("appending: " + t);
-						appendContentPanel(t);
+						appendInfoPanel(t);
 					});
 				} else {
-					appendContentPanel("You do not have item you are trying to use");
+					appendInfoPanel("You do not have item you are trying to use");
 				}
 			}
 		}
@@ -161,7 +173,7 @@ var Yarrow = (function (my) {
 					movePlayer(map, player, argument);
 					textElement = currentTextElement();
 					updateContentPanel(textElement.text());
-					appendContentPanel(sprintf("<i>You traveled: %s</i>", argument));
+					appendInfoPanel(sprintf("<i>You traveled: %s</i>", argument));
 				break;
 			}
 		}
@@ -169,12 +181,12 @@ var Yarrow = (function (my) {
 		if(textElement.funcs!==undefined) {			
 			if(textElement.funcs.init !== undefined) {
 				textElement.funcs.init(player, map, function(t) {
-					appendContentPanel(t);
+					appendInfoPanel(t);
 				});
 				textElement.funcs.init = undefined;		
 			} else if (textElement.funcs.ambush !== undefined) {
-				textElement.funcs.ambush(player, map, function(t) {
-					appendContentPanel(t);
+				textElement.funcs.ambush(textElement, player, map, function(t) {
+					appendInfoPanel(t);
 				});
 			}
 		}

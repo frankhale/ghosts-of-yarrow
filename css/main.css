@@ -24,3 +24,11 @@
 	height: 110px;
 	font-size: 22px;
 }
+
+.alert {
+	color: #CC0000;
+}
+
+.success {
+	color: #009900;
+}

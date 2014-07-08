@@ -1,6 +1,31 @@
 var Yarrow = (function (my) {
 	"use strict"; 
 	
+	my.items = [
+		{
+			id: 1,
+			name: "wooden sword",
+			type: "weapon",
+			strength: 2
+		},
+		{
+			id: 2,
+			name: "magic hammer",
+			type: "weapon",
+			strength: 20,
+			special: "A shock wave is sent towards the enemy dealing a heavy blow!"
+		}
+	];
+	
+	//my.enemies = [
+	//	{
+	//		id: 1,
+	//		name: "sabretooth frog",
+	//		health: 20,
+	//		strength: 2
+	//	}
+	//]
+	
 	my.locations = [
 		{ id: 1, text: "You are standing in a grass field" },
 		{ id: 2, text: "You've stumbled upon a wooden sword" },
@@ -18,6 +43,13 @@ var Yarrow = (function (my) {
 		return loc.text;
 	};
 	
+	my.init = function(p) {
+		var magicHammer = _.find(my.items, function(i) {
+			return i.name === "magic hammer";
+		});
+		p.inventory.push(magicHammer);
+	};
+	
 	my.data = [
 		{
 			id: 1,
@@ -30,11 +62,11 @@ var Yarrow = (function (my) {
 			text: function() {
 				return getTextForLocation(this.id);
 			},
-			items: ["wooden sword"],
+			items: [1],
 			funcs: {
 				take: function(e, p, m, arg) {
 					var what = _.find(e.items, function(i) {
-						return i === arg;
+						return i.name === arg;
 					});
 					
 					if(what !== undefined) {
@@ -52,7 +84,13 @@ var Yarrow = (function (my) {
 			funcs: {
 				init: function(p, m, u) {
 					p.gold += 50;
-					p.inventory.push("magic hammer");
+					
+					var magicHammer = _.find(my.items, function(i) {
+						return i.name === "magic hammer";
+					});
+					
+					p.inventory.push(magicHammer);
+					
 					u("You received 50 gold pieces and a magic hammer, congratulations!");
 					m[p.position.x][p.position.y]=1; // changes the tile for this location on the map
 				}
@@ -61,43 +99,48 @@ var Yarrow = (function (my) {
 		{
 			id: 4,
 			health: 20,
-			items: ["wooden sword"],
 			text: function() {
 				return getTextForLocation(this.id);
 			},
 			funcs: {
 				use: function(e, p, m, arg, u) {
-					var what = _.find(e.items, function(i) {
-						return i === arg;
+					var what = _.find(my.items, function(i) {
+						return i.name === arg;
 					});
 					
 					if(what !== undefined) {
 						var r = Math.floor((Math.random() * 10) + 1);
-						var lostHP = (r * 2);
+						var lostHP = (r * what.strength);
 						e.health -= lostHP;
 						
-						console.log("enemies health: " + e.health);
+						//console.log("enemies health: " + e.health);
 						
-						u(sprintf("You attacked and the enemy lost %d health", lostHP));
+						if(what.special !== undefined) {
+							u(what.special);
+						}
+						
+						u(sprintf("<span class='success'>You attacked and the enemy lost %d health</span>", lostHP));
 						
 						if(e.health <= 0) {
-							var reward = Math.floor((Math.random() * 20) + 1) * 2;
+							var reward = Math.floor((Math.random() * 20) + 10) * what.strength;
 							p.gold += reward;
-							u(sprintf("You've killed the enemy and received %d gold pieces", reward));
+							u(sprintf("<span class='success'><strong>You've killed the enemy and received %d gold pieces</strong></span>", reward));
 							m[p.position.x][p.position.y]=1; // changes the tile for this location on the map
 						}
 					}
 				},
-				ambush: function(p, m, u) {
-					var r = Math.floor((Math.random() * 10) + 1);
-					var lostHP = (r * 2);
-					
-					if(p.health - lostHP <= 0) {
-						u("You have succumb to the injuries inflicted to you by the monster and have died.");
-						p.health = 0;
-					} else {
-						p.health -= lostHP;
-						u(sprintf("You were attacked and lost %d health", lostHP));
+				ambush: function(e, p, m, u) {
+					if(e.health > 0) {
+						var r = Math.floor((Math.random() * 10) + 1);
+						var lostHP = (r * 2);
+						
+						if(p.health - lostHP <= 0) {
+							u("<span class='alert'>You have succumb to the injuries inflicted to you by the monster and have died.</span>");
+							p.health = 0;
+						} else {
+							p.health -= lostHP;
+							u(sprintf("<span class='alert'>You were attacked and lost %d health</span>", lostHP));
+						}
 					}
 				}
 			}
