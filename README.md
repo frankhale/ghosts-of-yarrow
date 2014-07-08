@@ -14,6 +14,10 @@ If you were to run this what you'll get is more or less a demo with a tiny map. 
 story behind this game will be added later once I figure out how to code the various 
 text adventure problems.
 
+##Screenshot
+
+<img src="screenshots/ghosts-of-yarrow-screenshot.png" alt="ghosts of yarrow screenshot"></img>
+
 ##Author
 
 Frank Hale &lt;frankhale@gmail.com&gt;  
