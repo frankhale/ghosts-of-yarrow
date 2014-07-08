@@ -1,16 +1,26 @@
 .commandInput {
-	width: 680px;
+	width: 715px;
 }
 
 .content {
+	overflow: auto;
 	margin-top: 5px;
 	border: 1px solid #ccc;
-	height: 395px;
-	font-size: 32px;
+	height: 275px;
+	font-size: 22px;
 }
 
 .player {
 	margin-top: 10px;
 	border: 1px solid #ccc;
 	height: 110px;
+}
+
+.info {
+	overflow: auto;
+	margin-top: 10px;
+	color: #aaa;
+	border: 1px solid #ccc;
+	height: 110px;
+	font-size: 22px;
 }

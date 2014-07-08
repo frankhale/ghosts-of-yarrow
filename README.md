@@ -8,13 +8,16 @@ and JavaScript.
 The storyline, requirements and other details are being tracked in the notes directory
 of this repository.
 
-The games code are taking a backseat at the moment due to the fact that I want to explore 
-the storyline and world before I really do a deep dive.
+NOTE: This is some really horrible JavaScript so don't laugh, LOL!
+
+If you were to run this what you'll get is more or less a demo with a tiny map. The real
+story behind this game will be added later once I figure out how to code the various 
+text adventure problems.
 
 ##Author
 
 Frank Hale &lt;frankhale@gmail.com&gt;  
-Date: 5 July 2014
+Date: 7 July 2014
 
 ##License
 

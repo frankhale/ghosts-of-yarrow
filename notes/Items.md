@@ -4,6 +4,7 @@ Arrows
 Candle holder
 Flare
 Torch
+Keys
 
 ##Food
 
