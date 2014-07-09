@@ -14,17 +14,24 @@ var Yarrow = (function (my) {
 			type: "weapon",
 			strength: 20,
 			special: "A shock wave is sent towards the enemy dealing a heavy blow!"
+		},
+		{
+			id: 3,
+			name: "elixir of perfect health",
+			type: "potion",
+			
 		}
 	];
 	
-	//my.enemies = [
-	//	{
-	//		id: 1,
-	//		name: "sabretooth frog",
-	//		health: 20,
-	//		strength: 2
-	//	}
-	//]
+	my.enemies = [
+		{
+			id: 1,
+			name: "sabretooth frog",
+			health: 20,
+			strength: 2,
+			inventory: []
+		}
+	]
 	
 	my.locations = [
 		{ id: 1, text: "You are standing in a grass field" },
@@ -32,6 +39,16 @@ var Yarrow = (function (my) {
 		{ id: 3, text: "WOW! You made it to the other side of the world. YAY!" },
 		{ id: 4, text: "You've encountered a vicious rabbid sabretooth frog" }
 	]
+	
+	var getEnemyForLocation = function(id) {
+		var en = _.find(my.enemies, function(l) {
+			if(l.id === id) {
+				return l;
+			}
+		});
+		
+		return en;
+	}
 	
 	var getTextForLocation = function(id) {
 		var loc = _.find(my.locations, function(l) {
@@ -62,16 +79,16 @@ var Yarrow = (function (my) {
 			text: function() {
 				return getTextForLocation(this.id);
 			},
-			items: [1],
 			funcs: {
-				take: function(e, p, m, arg) {
-					var what = _.find(e.items, function(i) {
-						return i.name === arg;
+				take: function(e, p, m, arg, u) {
+					var what = _.find(my.items, function(i) {
+						return i.name === "wooden sword";
 					});
 					
-					if(what !== undefined) {
+					if(what !== undefined && what.name === arg) {
 						p.inventory.push(what);						
 						m[p.position.x][p.position.y]=1; // changes the tile for this location on the map
+						u(sprintf("<span class='success'>You've picked up a %s</span>", what.name));
 					}
 				}
 			}
@@ -139,7 +156,7 @@ var Yarrow = (function (my) {
 							p.health = 0;
 						} else {
 							p.health -= lostHP;
-							u(sprintf("<span class='alert'>You were attacked and lost %d health</span>", lostHP));
+							u(sprintf("<span class='alert'>You were ambushed and lost %d health</span>", lostHP));
 						}
 					}
 				}

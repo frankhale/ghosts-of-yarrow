@@ -21,7 +21,7 @@ text adventure problems.
 ##Author
 
 Frank Hale &lt;frankhale@gmail.com&gt;  
-Date: 7 July 2014
+Date: 8 July 2014
 
 ##License
 

@@ -141,7 +141,11 @@ var Yarrow = (function (my) {
 		
 		if (action === 'take') {
 			if(textElement.funcs!==undefined && textElement.funcs.take !== undefined){
-				textElement.funcs.take(textElement, player, map, argument);
+				appendInfoPanel("you issued the take command");
+				
+				textElement.funcs.take(textElement, player, map, argument, function(t) {
+					appendInfoPanel(t);
+				});
 				textElement = currentTextElement();
 				updateContentPanel(textElement.text());
 			}
@@ -176,6 +180,9 @@ var Yarrow = (function (my) {
 					appendInfoPanel(sprintf("<i>You traveled: %s</i>", argument));
 				break;
 			}
+		} else {
+			// A command was issued and there were no handlers for it
+			appendInfoPanel(sprintf("<i>I don't understand how to: %s</i>", commandText));
 		}
 		
 		if(textElement.funcs!==undefined) {			
