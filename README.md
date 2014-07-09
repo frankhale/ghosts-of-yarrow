@@ -14,6 +14,29 @@ If you were to run this what you'll get is more or less a demo with a tiny map. 
 story behind this game will be added later once I figure out how to code the various 
 text adventure problems.
 
+The map is only 3x3 and only serves as a placeholder.
+
+To move type:
+
+move east
+move west
+move south
+move north
+
+To pick up an item type:
+
+get [item_name]
+
+to engage the enemy in battle type:
+
+use magic hammer
+
+or
+
+use wooden sword [if you've picked it up]
+
+You really can't do anything else yet.
+
 ##Screenshot
 
 <img src="screenshots/ghosts-of-yarrow-screenshot.png" alt="ghosts of yarrow screenshot"></img>
