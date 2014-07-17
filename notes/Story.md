@@ -108,4 +108,7 @@ throughout the game. I want a deep friendship and bond to be developed
 between the two. The NPC will be located in Irdana which is the closest city to
 the players starting position. The NPC cannot be killed and will available or
 with the player throughout the game. This NPC will have a vast knowledge of the
-country, cities and various aspects of the game world.
+country, cities and various aspects of the game world. The NPC can help the 
+player in many ways for instance can be dispatched to gather goods, food, etc..
+as well as dispatched to gather information. 
+
