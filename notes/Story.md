@@ -36,10 +36,10 @@ You are dressed in drab leather pants, a cloth shirt, a pair of boots and
 carrying a backpack.
 
 You take your backpack off to examine the contents of it. Within it you find
-a lighter, a cloth, a map, 10 gold coins and some small food items and a
-bottle of water.
+a flint, a cloth, a torn map, 10 gold coins and some small food items and a
+flask of water.
 
-Walking towards the lights to your north took approximately 15 - 20 minutes
+Walking towards the lights to your north took approximately 30 - 45 minutes
 due to your uneasiness with the terrain and the fact that it's night. The
 bright luminance of the moon was not enough to ease your weariness as you
 travesed the land. Your suspicions of the lights being from a village are
