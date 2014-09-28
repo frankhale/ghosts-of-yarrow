@@ -1,6 +1,6 @@
 {
   "name": "ghosts-of-yarrow",
-  "description": "An exploration into creating a hybrid text adventure / role playing game using JavaScript and Atom-Shell",
+  "description": "An text adventure / role playing game set in a medieval world",
   "author": {
     "name": "Frank Hale"
   },
@@ -10,12 +10,6 @@
       "email": "frankhale@gmail.com"
     }
   ],
-  "version": "0.1.0",
-  "main": "main.js",
-  "dependencies": {
-    "jquery": "^2.1.1",
-    "lodash": "^2.4.1",
-    "sanitize-html": "^1.2.1",
-    "sprintf": "^0.1.3"
-  }
+  "version": "0.2.0",
+  "main": "main.js"
 }

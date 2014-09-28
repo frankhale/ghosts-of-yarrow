@@ -1,7 +1,4 @@
-// This is basically a copy of the Hello, World app with just a few changes.
-
 var app = require('app');  // Module to control application life.
-var path = require('path');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Report crashes to our server.
@@ -20,24 +17,22 @@ app.on('window-all-closed', function() {
 // This method will be called when atom-shell has done everything
 // initialization and ready for creating browser windows.
 app.on('ready', function() {
-	// Create the browser window.
-	mainWindow = new BrowserWindow({
-		width: 800, 
-		height: 600,
-		resizable: false,
-		icon: path.resolve(__dirname, 'ghostsofyarrow.png')
-	});
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+	width: 800, 
+	height: 600,
+	resizable: false,
+	icon: __dirname + '/Y.png'
+  });
 
-	// and load the index.html of the app.
-	mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  // and load the index.html of the app.
+  mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
-	mainWindow.toggleDevTools();
-   
-	// Emitted when the window is closed.
-	mainWindow.on('closed', function() {
-		// Dereference the window object, usually you would store windows
-		// in an array if your app supports multi windows, this is the time
-		// when you should delete the corresponding element.
-		mainWindow = null;
-	});
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function() {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null;
+  });
 });

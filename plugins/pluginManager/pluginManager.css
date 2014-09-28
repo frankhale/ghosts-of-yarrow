@@ -1,0 +1,25 @@
+.pluginManagerContent {
+  display: none;
+  width:98%;
+  /*border: 1px solid red;*/
+  margin-left: 10px;
+  padding: 2px;
+}
+
+#pluginList {
+  width: 300px;
+  outline: none;
+}
+
+.pluginEnabled {
+  color: #009900;
+}
+
+.pluginDisabled {
+  color: #FF0000;
+}
+
+.pluginCore {
+  color: #00009F;
+  font-weight: bold;
+}

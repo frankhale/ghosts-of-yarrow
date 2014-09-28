@@ -1,0 +1,7 @@
+.aboutContent {
+  display: none;
+  width:98%;
+  /*border: 1px solid red;*/
+  margin-left: 10px;
+  padding: 2px;
+}

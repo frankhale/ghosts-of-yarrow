@@ -1,34 +1,74 @@
-.commandInput {
-	width: 715px;
+@font-face {
+  font-family: 'Oxygen';
+  src: url('../fonts/Oxygen/Oxygen-Regular.ttf');
+}
+@font-face {
+	font-family: 'Julius Sans One';
+	src: url('../fonts/Julius_Sans_One/JuliusSansOne-Regular.ttf');
+}
+@font-face {
+	font-family: 'Allerta';
+	src: url('../fonts/Allerta/Allerta-Regular.ttf');
 }
 
-.content {
-	overflow: auto;
-	margin-top: 5px;
-	border: 1px solid #ccc;
-	height: 275px;
-	font-size: 22px;
+html, body {
+	font-family: 'Allerta', sans-serif;
+	font-size: 26px;
+	margin:0px;
+	padding:0px;
+	font-size: 14px;
 }
 
-.player {
-	margin-top: 10px;
-	border: 1px solid #ccc;
-	height: 110px;
+table {
+	border-collapse: collapse;
+	border: 1px solid #aaa;
+}
+table, td, th {
+    border: 1px solid #aaa;
 }
 
-.info {
-	overflow: auto;
-	margin-top: 10px;
-	color: #aaa;
-	border: 1px solid #ccc;
-	height: 110px;
-	font-size: 22px;
+.top-bar {
+	padding: 2px;
+	background-color: #bbb;
+	border-bottom: 2px solid #000;
+	height: 75px;
 }
 
-.alert {
-	color: #CC0000;
+.top-bar-content {
+	margin: 2px;
+	/*border: 1px solid #000;
+	background-color: #aaa;*/
+	height: 42px;
 }
 
-.success {
-	color: #009900;
+.bottom-bar {
+	position: absolute;
+	bottom: 5px;
+	/*border-top: 2px solid #bbb;*/
+	width: 100%;
+	font-size: 20px;
+}
+
+.main-content {
+	/*border: 2px solid red;*/
+	padding:5px;
+	font-size: 26px;
+	height: 420px;
+}
+
+.command-text {
+	font-family: 'Allerta', sans-serif;
+	font-size: 20px;
+	border:none;
+	width: 97%;
+}
+.command-text:focus {
+	outline: none;
+}
+
+.inset-button-container {
+	border: 1px solid #aaa;
+	height: 25px;
+	width: 778px;
+	background-color: #bbb;
 }

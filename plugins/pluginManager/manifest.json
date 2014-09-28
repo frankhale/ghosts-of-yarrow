@@ -1,0 +1,12 @@
+{
+  "name"    : "Plugin Manager",
+  "version" : "0.2.0",
+  "release-date" : "09/26/2014",
+  "authors" : [
+    { "name" : "Frank Hale",
+      "email" : "frankhale@gmail.com" }
+  ],
+  "main"    : "pluginManager.js",
+  "css"     : "pluginManager.css",
+  "core"    : true
+}
