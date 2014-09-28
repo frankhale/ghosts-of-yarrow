@@ -9,23 +9,16 @@ module.exports = (function() {
   var my = {};
 
   var items = {
-      weapons: {},
-      armor: {},
-      food: {},
+      weapons: [],
+      armor: [],
+      food: [],
+      potions: [],
       ingredients: [],
       scrolls: [],
       books: [],
       keys: [],
       other: []
     },
-    magic = {
-      fire: [],
-      electricity: [],
-      water: [],
-      earth: [],
-      wind: [],
-    },
-    potions = {},
     enchantments = {},
     enemies = {},
     locations = {},
@@ -105,6 +98,9 @@ module.exports = (function() {
   }
 
   function declareCoreArmor() {
+    // There are Oblivion/Skyrim overtones in here, LOL! There will be some
+    // of that but there will be deviations!
+
     // Leather
     addWeapon("Leather Boots", "leather", 0, 0, null);
     addWeapon("Leather Armor", "leather", 0, 0, null);
