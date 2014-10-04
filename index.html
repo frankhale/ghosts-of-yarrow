@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ghosts of Yarrow</title>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href='./css/main.css' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-	<div id="contentArea">
-    <div id="mainUI">
-  		<div id="topBar" class="top-bar">
-  			<div id="topBarLeftButtons" style="display:inline;">
-  			</div>
-  			<div id="topBarRightButtons" style="display:inline;float:right;">
-  				<button id="reloadButton"><i class="fa fa-refresh"></i></button>
-  				<button id="devToolsButton"><i class="fa fa-bug"></i></button>
-  			</div>
-  				<div id="topBarContent" class='top-bar-content'>&nbsp;</div>
-  		</div>
-  		<div id="mainContent" class="main-content">Testing, Blah, Xyz</div>
-  		<div id="bottomBar" class="bottom-bar">&nbsp;&gt;&nbsp;<input type="text" id="commandText" class="command-text" autofocus></div>
+
+<head>
+  <title>The Ghosts of Yarrow</title>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='./css/main.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div id="contentArea">
+    <div id="mainUI" class="main-ui">
+      <div id="topBar" class="top-bar">
+        <div id="topBarLeftButtons" style="display:inline;">
+        </div>
+        <div id="topBarRightButtons" style="display:inline;float:right;">
+          <button id="reloadButton"><i class="fa fa-refresh"></i>
+          </button>
+          <button id="devToolsButton"><i class="fa fa-bug"></i>
+          </button>
+        </div>
+      </div>
+      <div id="topBarContent" class='top-bar-content'>&nbsp;</div>
+      <div id="contentContainer">
+        <div id="mainContent" class="main-content"></div>
+        <div id="rightContent" class="right-content"></div>
+      </div>
+      <div id="bottomBar" class="bottom-bar">&nbsp;&gt;
+        <input type="text" id="commandText" class="command-text" autofocus>
+      </div>
     </div>
   </div>
-	<script type="text/javascript">
-		window.$ = window.jQuery = require('./scripts/jquery-2.1.1.min.js');
-		window._ = require('./scripts/lodash.min.js');
-		window.sprintf = require('./scripts/sprintf.min.js').sprintf;
-	</script>
-	<script src="./scripts/core.js" type="text/javascript"></script>
-  </body>
+  <script type="text/javascript">
+    window.$ = window.jQuery = require('./scripts/jquery-2.1.1.min.js');
+    window._ = require('./scripts/lodash.min.js');
+    window.sprintf = require('./scripts/sprintf.min.js').sprintf;
+    window.moment = require('./scripts/moment.min.js');
+  </script>
+  <script src="./scripts/core.js" type="text/javascript"></script>
+</body>
+
 </html>

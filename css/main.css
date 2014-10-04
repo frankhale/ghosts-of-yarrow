@@ -13,10 +13,10 @@
 
 html, body {
 	font-family: 'Allerta', sans-serif;
-	font-size: 26px;
 	margin:0px;
 	padding:0px;
 	font-size: 14px;
+  overflow: hidden;
 }
 
 table {
@@ -27,40 +27,55 @@ table, td, th {
     border: 1px solid #aaa;
 }
 
+.main-ui {
+  display: none;
+}
+
 .top-bar {
 	padding: 2px;
-	background-color: #bbb;
-	border-bottom: 2px solid #000;
-	height: 75px;
+	background-color: #d2cfcf;
+	border-bottom: 2px solid #bbb;
+	height: 25px;
 }
 
 .top-bar-content {
-	margin: 2px;
-	/*border: 1px solid #000;
-	background-color: #aaa;*/
-	height: 42px;
+	/*margin: 2px;*/
+	border-bottom: 1px solid #000;
+	/*background-color: #777;*/
+	/*height: 42px;*/
 }
 
 .bottom-bar {
-	position: absolute;
 	bottom: 5px;
-	/*border-top: 2px solid #bbb;*/
-	width: 100%;
+	border-top: 1px solid #000;
 	font-size: 20px;
 }
 
 .main-content {
-	/*border: 2px solid red;*/
-	padding:5px;
+  display: inline-block;
+  margin-top: 5px;
+	/*border: 1px solid red;*/
 	font-size: 26px;
-	height: 420px;
+	height: 440px;
+  width: 675px;
+}
+
+.right-content {
+  display: inline-block;
+  margin-top: 5px;
+  /*border: 1px solid green;*/
+  border-left: 1px solid black;
+  font-size: 16px;
+  height: 440px;
+  width: 30%;
 }
 
 .command-text {
 	font-family: 'Allerta', sans-serif;
 	font-size: 20px;
 	border:none;
-	width: 97%;
+	width: 95%;
+  /*border: 1px solid blue;*/
 }
 .command-text:focus {
 	outline: none;

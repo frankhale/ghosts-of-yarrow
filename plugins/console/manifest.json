@@ -1,0 +1,12 @@
+{
+  "name" : "Console",
+  "version" : "0.1.0",
+  "release-date" : "10/03/2014",
+  "authors" : [
+    { "name" : "Frank Hale",
+      "email" : "frankhale@gmail.com" }
+  ],
+  "main"    : "console.js",
+  "css" : "console.css",
+  "enabled" : true
+}

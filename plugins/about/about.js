@@ -1,29 +1,48 @@
-module.exports = (function(){
+module.exports = (function() {
   'use strict';
 
   var my = {};
 
   my.init = function(host, templates) {
-    var showAboutButton = _.find(templates, { 'name': 'showAboutButton.html' }),
-        aboutContent = _.find(templates, { 'name': 'about.html' });
+    var showAboutButtonTemplate = _.find(templates, {
+        'name': 'showAboutButton.html'
+      }),
+      aboutContentTemplate = _.find(templates, {
+        'name': 'about.html'
+      });
 
-    host.$topBarLeftButtons.append(showAboutButton.data);
-    host.$contentArea.append(aboutContent.data);
+    host.$topBarLeftButtons.append(showAboutButtonTemplate.data);
+    host.$contentArea.append(aboutContentTemplate.data);
 
     var $about = $("#about");
+    var $name = $("#name");
+    var $description = $("#description");
+    var $author = $("#author");
+    var $date = $("#date");
 
-    function toggleAbout() {
-      if($about.css('display') === 'inline-block') {
-        $about.css('display', 'none');
-        host.$mainUI.css('display', 'inline');
-      } else {
+    my.showAbout = function() {
+      if ($about.css('display') === 'none') {
         host.$mainUI.css('display', 'none');
-        $about.css('display', 'inline-block');
+        $about.css('display', 'block');
       }
-    }
+    };
 
-    $("#showAboutButton").click(toggleAbout);
-    $("#closeAboutButton").click(toggleAbout);
+    my.hideAbout = function() {
+      if ($about.css('display') !== 'none') {
+        $about.css('display', 'none');
+        host.$mainUI.css('display', 'block');
+      }
+    };
+
+    $("#showAboutButton").click(my.showAbout);
+    $("#closeAboutButton").click(my.hideAbout);
+
+    var corePackageJSON = host.getPackageJSON();
+
+    $name.html("Name: " + corePackageJSON.name + "<br/>");
+    $description.html("Description: " + corePackageJSON.description + "<br/>");
+    $author.html("Author: " + corePackageJSON.author.name + "<br/>");
+    $date.html("Date: " + moment(corePackageJSON["release-date"], "MM-DD-YYYY").format("MMMM Do YYYY")  + "<br/>");
   };
 
   my.unload = function() {
@@ -32,7 +51,6 @@ module.exports = (function(){
     //TODO: remove CSS link
     $("#aboutCSS").remove();
     //TODO: set enabled in manifest to false
-
   };
 
   return my;

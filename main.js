@@ -19,14 +19,15 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-	width: 800, 
-	height: 600,
+	width: 1024,
+	height: 576,
 	resizable: false,
 	icon: __dirname + '/Y.png'
   });
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  //mainWindow.toggleDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

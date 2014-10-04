@@ -1,9 +1,9 @@
-// The Ghosts of Yarror
+// The Ghosts of Yarrow
 //
 // Frank Hale <frankhale@gmail.com>
-// 28 Sept 2014
+// 3 October 2014
 
-var APP = (function(my) {
+var YARROW = (function(my) {
   'use strict';
 
   var remote = require('remote'),
@@ -17,6 +17,7 @@ var APP = (function(my) {
     $topBarLeftButtons = $("#topBarLeftButtons"),
     $topBarRightButtons = $("#topBarRightButtons"),
     $mainContent = $("#mainContent"),
+    $rightContent = $("#rightContent"),
     $mainUI = $("#mainUI"),
     $bottomBar = $("#bottomBar"),
     $commandText = $("#commandText");
@@ -25,6 +26,7 @@ var APP = (function(my) {
     $reloadButton = $("#reloadButton");
 
   var pluginsDirectory = process.cwd() + "\\resources\\app\\plugins",
+    appBasePath = process.cwd() + "\\resources\\app",
     plugins = [],
     pluginsFinishedLoadingCallbacks = [],
     processCommandCallbacks = [];
@@ -34,10 +36,16 @@ var APP = (function(my) {
     health: 25,
     mp: 25,
     stamina: 25,
-    gold: 50,
+    gold: 10,
+    "equipped-items": {
+      armor: [],
+      weapons: [],
+      other: []
+    },
     position: {
       x: 0,
-      y: 0
+      y: 0,
+      mapId: ""
     },
     inventory: [],
     capacity: 50,
@@ -57,10 +65,38 @@ var APP = (function(my) {
       "trespasses": {},
       "completed-quests": []
     }
-  }
+  };
 
-  var maps = [], // an array of objects that describe the map and also define it
-    data = []; // an array of objects that describe the data and also define it
+  var npc = function(name) {
+    return {
+      name: name,
+      health: 0,
+      mp: 0,
+      stamina: 0,
+      gold: 0,
+      "equipped-items": {
+        armor: [],
+        weapons: [],
+        other: []
+      },
+      position: {
+        x: 0,
+        y: 0
+      },
+      inventory: []
+    };
+  };
+
+  var data = {
+    items: {},
+    npcs: {},
+    maps: {
+      // will contain an object that has a map and map data at a minimum
+    },
+    quests: {
+      // not sure what these will look like yet
+    }
+  };
 
   var movePlayer = function(map, player, arg) {
     // This doesn't yet take into consideration areas of the map that cannot be navigated to like water, walls, etc..
@@ -101,20 +137,19 @@ var APP = (function(my) {
     // });
     //
     // return textElement;
-  }
+  };
 
-  my.$contentArea = $contentArea;
-  my.$topBar = $topBar;
-  my.$topBarContent = $topBarContent;
-  my.$mainContent = $mainContent;
-  my.$topBarLeftButtons = $topBarLeftButtons;
-  my.$topBarRightButtons = $topBarRightButtons;
-  my.$mainUI = $mainUI;
-  my.$bottomBar = $bottomBar;
-  my.plugins = plugins;
-  my.player = player;
-  my.map = map;
-  my.getCurrentTextElement = getCurrentTextElement;
+  my.getPackageJSON = function() {
+    var packageJSONPath = appBasePath + "\\package.json",
+      result = {};
+
+    if (fs.existsSync(packageJSONPath)) {
+      var data = fs.readFileSync(packageJSONPath);
+      result = JSON.parse(data);
+    }
+
+    return result;
+  };
 
   my.init = function() {
     $devToolsButton.click(function() {
@@ -171,42 +206,76 @@ var APP = (function(my) {
       var data = fs.readFileSync(manifestPath); // change to async
       var manifest = JSON.parse(data);
 
-      if (('main' in manifest) && (('enabled' in manifest) || ('core' in manifest))) {
+      // Probably going to need to check for more fields than these...
+      if ('main' in manifest && 'name' in manifest) {
         plugins.push(manifest);
 
-        var cssPath = "./plugins/" + name + "/" + manifest.css;
-        var jsPath = "./plugins/" + name + "/" + manifest.main;
-        var templates = [];
+        if (('enabled' in manifest && manifest.enabled) || ('core' in manifest && manifest.core)) {
+          //console.log("loading plugin " + manifest.name);
 
-        if (fs.existsSync(templatesPath)) {
-          var templateFiles = fs.readdirSync(templatesPath); // change to async
+          var jsPath = "./plugins/" + name + "/" + manifest.main;
+          var templates = [];
 
-          _.forEach(templateFiles, function(tf) {
-            var templateData = fs.readFileSync(templatesPath + "\\" + tf, 'utf8'); // change to async
-            templates.push({
-              name: tf,
-              "data": templateData
+          if (fs.existsSync(templatesPath)) {
+            var templateFiles = fs.readdirSync(templatesPath); // change to async
+
+            _.forEach(templateFiles, function(tf) {
+              var templateData = fs.readFileSync(templatesPath + "\\" + tf, 'utf8'); // change to async
+              templates.push({
+                name: tf,
+                "data": templateData
+              });
             });
-          });
-        }
-
-        manifest.templates = templates;
-
-        if (manifest.enabled || manifest.core) {
-          if (manifest.css) {
-            $("<link id='" + manifest.name + "CSS' rel='stylesheet' type='text/css' href='" + cssPath + "'/>").appendTo("head");
           }
-          var p = require(jsPath);
-          p.init(APP, templates);
-          manifest.pluginInstance = p;
+
+          manifest.templates = templates;
+
+          if (manifest.enabled || manifest.core) {
+            if (manifest.css !== undefined) {
+              var addCSSToHead = function(cssPath) {
+                $("<link id='" + manifest.name + "CSS' rel='stylesheet' type='text/css' href='" + cssPath + "'/>").appendTo("head");
+              };
+
+              if (manifest.css instanceof Array) {
+                _.forEach(manifest.css, function(cssFile) {
+                  var cssPath = "./plugins/" + name + "/" + cssFile;
+                  addCSSToHead(cssPath);
+                });
+              } else {
+                var cssPath = "./plugins/" + name + "/" + manifest.css;
+                addCSSToHead(cssPath);
+              }
+            }
+
+            var p = require(jsPath);
+            p.init(YARROW, templates);
+            manifest.pluginInstance = p;
+          }
         }
       }
     }
   };
 
+  my.$contentArea = $contentArea;
+  my.$topBar = $topBar;
+  my.$topBarContent = $topBarContent;
+  my.$mainContent = $mainContent;
+  my.$rightContent = $rightContent;
+  my.$topBarLeftButtons = $topBarLeftButtons;
+  my.$topBarRightButtons = $topBarRightButtons;
+  my.$mainUI = $mainUI;
+  my.$bottomBar = $bottomBar;
+  my.plugins = plugins;
+  my.player = player;
+  my.npc = npc;
+  my.data = data;
+  my.getCurrentTextElement = getCurrentTextElement;
+  my.appBasePath = appBasePath;
+
   return my;
-}(APP || {}));
+}(YARROW || {}));
+module.exports = YARROW;
 
 $(document).ready(function() {
-  APP.init();
+  YARROW.init();
 });

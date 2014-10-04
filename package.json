@@ -1,6 +1,7 @@
 {
   "name": "ghosts-of-yarrow",
   "description": "An text adventure / role playing game set in a medieval world",
+  "release-date": "10-3-2014",
   "author": {
     "name": "Frank Hale"
   },
@@ -10,6 +11,6 @@
       "email": "frankhale@gmail.com"
     }
   ],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "main.js"
 }

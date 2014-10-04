@@ -1,0 +1,12 @@
+{
+  "name" : "Plugin Template",
+  "version" : "0.1.0",
+  "release-date" : "10/01/2014",
+  "authors" : [
+    { "name" : "Your Name",
+      "email" : "you@foobar.com" }
+  ],
+  "main"    : "pluginTemplate.js",
+  "css" : "pluginTemplate.css",
+  "enabled" : true
+}

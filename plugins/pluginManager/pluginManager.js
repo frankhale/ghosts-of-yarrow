@@ -52,9 +52,9 @@ module.exports = (function(){
     }
 
     function addPluginsToList() {
-      console.log(host.plugins);
+      //console.log(host.plugins);
       _.forEach(host.plugins, function(p) {
-        console.log("loading plugin: " + p.name);
+        //console.log("adding plugin : " + p.name + " to plugin list...");
         var _class;
 
         if (('core' in p) && p.core) {

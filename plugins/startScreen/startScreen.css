@@ -1,0 +1,16 @@
+
+.start-screen {
+  font-family: 'Julius Sans One';
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 5%;
+  /*border: 2px solid red;*/
+  font-size: 72px;
+}
+
+.start-screen-other {
+  font-family: 'Oxygen';
+  font-size: 18px;
+  width: 100%;
+  text-align: right;
+}
