@@ -43,3 +43,5 @@
 - Develop an alchemy manager plugin.
 - Develop an enchantment manager plugin.
 - Develop an instructures/game information plugin.
+- As the player plays through the game there should be a view of the text that
+  they have already read for easy reference.
